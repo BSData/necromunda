@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue id="723ae735-02a1-6353-74a7-adb4e782a752" revision="6" gameSystemId="d18e75d8-f27e-b243-cb33-25f023403189" gameSystemRevision="1" battleScribeVersion="1.15" name="Standard Gang" authorName="3vil Tom, Jonskichov" authorContact="@3viltom, @Jonskichov (Twitter)" authorUrl="http://catalogue.randomhit.org" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+<catalogue id="723ae735-02a1-6353-74a7-adb4e782a752" revision="10" gameSystemId="d18e75d8-f27e-b243-cb33-25f023403189" gameSystemRevision="1" battleScribeVersion="1.15" name="Standard Gang" authorName="3vil Tom, Jonskichov" authorContact="@3viltom, @Jonskichov (Twitter)" authorUrl="http://catalogue.randomhit.org" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
   <entries>
     <entry id="c3ab7ebc-e803-e6e1-d574-c47d2f0b3dd2" name="Gang Details" points="0.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="1" maxInRoster="1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
       <entries>
@@ -820,7 +820,7 @@ Injury: If a fighter with a bionic leg suffers another leg injury, randomly dete
       <profiles/>
       <links/>
     </entry>
-    <entry id="79b036bc-9798-3750-77c7-5f7cc094b55b" name="Experience" points="1.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
+    <entry id="79b036bc-9798-3750-77c7-5f7cc094b55b" name="Experience" points="0.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
       <entries/>
       <entryGroups/>
       <modifiers/>
@@ -1527,7 +1527,7 @@ Overwatch: The sight is no advantage against a suddenly appearing or fleeting ta
       <links>
         <link id="436e1493-c182-2f32-c02f-0c9cd6cc9c73" targetId="79b036bc-9798-3750-77c7-5f7cc094b55b" linkType="entry">
           <modifiers>
-            <modifier type="set" field="minSelections" value="60.0" repeat="false" numRepeats="1" incrementParentId="roster" incrementChildId="no child" incrementField="selections" incrementValue="1.0">
+            <modifier type="set" field="minSelections" value="0.0" repeat="false" numRepeats="1" incrementParentId="roster" incrementChildId="no child" incrementField="selections" incrementValue="1.0">
               <conditions/>
               <conditionGroups/>
             </modifier>
@@ -1813,7 +1813,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="cd03-dca6-8dc4-48e6" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Shotgun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="4/18"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-/-1"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="69ac6c16-f6a8-0de6-3134-a27dcc61c368" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -1874,7 +1887,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="d6c0-1b5f-7bd3-f50d" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Lasgun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="12/24"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+1/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="2+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="944fb364-6250-1db4-9c82-d1a01b3e0809" targetId="b99efc86-dbd7-208d-d563-dbf561586513" linkType="entry">
               <modifiers>
@@ -1919,7 +1945,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="3124-6754-45df-aea2" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Autogun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="12/24"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+1/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="f6faf21b-6dc0-91ed-ea89-c18b682b6f23" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -1956,7 +1995,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="1f3b-4a4d-70cd-ff12" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Boltgun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="12/24"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+1/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="6+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="7f6f7022-35e9-dea9-d530-b2e9e1f0dab5" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -2305,7 +2357,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="fb70-bf9f-6b4c-c934" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Club/Maul/Bludgeon" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="-"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
         <entry id="ec1c46c9-a9a9-e325-0720-9bec8310a667" name="Chain/Flail" points="10.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
@@ -2313,7 +2375,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="2bf1-2558-7d24-4f8d" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Chain/Flail" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="+1"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="May not Parry, Fumbles count double"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
         <entry id="ab34d153-69cc-d922-45ba-f87c8f9f50b0" name="Chainsword" points="25.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
@@ -2321,7 +2393,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="0189-202f-37f5-cc9f" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Chainsword" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="4"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-1"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="Parry"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
         <entry id="26f11eab-f8ee-4584-035b-ed4f00f2d04a" name="Massive Axe/Sword/Club" points="15.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
@@ -2329,7 +2411,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="adc8-c42f-065a-b112" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Massive Axe/Sword/Club" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="+2"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="Opponet wins draws"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
         <entry id="a5b8ed37-8178-135e-954f-5fe03b409760" name="Sword" points="10.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
@@ -2337,7 +2429,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="f38a-e757-9845-fc41" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Sword" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="-"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="Parry"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
         <entry id="9fac02ec-54ff-4e60-eef5-7c30345ec410" name="Power Axe" points="35.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
@@ -2345,7 +2447,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="a0fa-13df-11ec-3464" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Power Axe" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="6/5"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1/1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-3/-2"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="first stats are 2 handed, seconed are 1 handed"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="c1edf964-3744-52f4-cef0-88310cebd16e" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
@@ -2357,7 +2469,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="5d64-7c49-c007-e445" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Power Fist" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="8"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-5"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="5615f47c-e45c-4784-53d4-83faaf5cb0eb" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
@@ -2369,7 +2491,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="ff5c-0c83-e9d2-8ef4" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Power Maul" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="5"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-3"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="Enemies who go down are automatically out of action. Does not inflict seroius injuries"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="0e074618-a935-2bed-d71f-f4f48b0189e1" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
@@ -2381,7 +2513,17 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="7698-43d0-3c33-c343" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" name="Power Sword" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="f10cfcb7-b71e-4c27-9836-75d341e28f68" name="Str" value="5"/>
+                <characteristic characteristicId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" name="Dam" value="1"/>
+                <characteristic characteristicId="dd733306-ecdc-02c5-7107-15ee6e980021" name="Save" value="-3"/>
+                <characteristic characteristicId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special" value="Parry"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="35208c9e-05c9-ea1c-1a2e-e2dbfee1fd72" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
@@ -2429,7 +2571,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="2667-633f-360c-4daa" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Heavy Plasma Gun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/40"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="7(10)"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="d3(d6)"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-2(-6)"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="Parenthesis is max power, takes a turn to recharge after fireing max. Blast, High Impact"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="48d469b9-ddf3-795d-716c-0c35ac31f1af" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" linkType="entry">
               <modifiers/>
@@ -2469,7 +2624,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="8da0-c61c-d0e9-464b" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Heavy Stubber" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/40"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="Sustaned fire 2 dice"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="6e6e404b-d647-fc0d-405a-4bce11efef8e" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" linkType="entry">
               <modifiers/>
@@ -2509,7 +2677,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="1d5c-80ee-bce9-9365" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Lascannon" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/60"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="9"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="2d6"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-6"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="bfb9e153-1d69-8402-db34-9bee3043c792" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" linkType="entry">
               <modifiers/>
@@ -2549,7 +2730,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="802a-3764-23a6-0c87" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Autocannon" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/72"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="8"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="d6"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-3"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="1 dice sustained fire High Impact"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="1953c5ce-706f-2148-33bb-566b1b66f723" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" linkType="entry">
               <modifiers/>
@@ -2589,7 +2783,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="c218-c49c-d88f-ddf6" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Heavy Bolter" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/40"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="5"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="d3"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-2"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="6+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="Sustained Fire 2 Dice"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="47925c55-9404-be41-bd06-db146f7e2bfd" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" linkType="entry">
               <modifiers/>
@@ -2617,7 +2824,20 @@ If a model successfully dodges from a weapon which uses a template or blast mark
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="5e0e-7223-0f2a-b8f2" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Missile Launcher" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/72"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="as missle"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="as missle"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="as missle"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="auto fail"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="missiles"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="fd7eaac0-4603-4bdb-1f10-bb8aaa4e4d8c" targetId="b5febb66-7aa9-5f09-968d-46922fdfdc90" linkType="entry group">
               <modifiers/>
@@ -3006,7 +3226,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="cbc6-8365-855c-4121" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Frag Missiles" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/72"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value=""/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="blast"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
         <entry id="83988659-47bf-b4b8-0d84-30f45757e88d" name="Krak Missiles" points="115.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
@@ -3014,7 +3247,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="a1c7-f658-ccf6-f212" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Krak Missiles" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/72"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="8"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="d6"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-6"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="-"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="High Impact"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links/>
         </entry>
       </entries>
@@ -3139,7 +3385,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="df77-fc98-10cf-9b9c" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Auto Pistol" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="8/16"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+2/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="ff398d09-95eb-b6d7-bd21-12cd1e8c669e" targetId="1d44b122-c435-9b49-71a5-c5b078051462" linkType="entry">
               <modifiers/>
@@ -3184,7 +3443,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="18bb-e2bd-3ba0-8e8f" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Stub Gun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="8/16"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-/-1"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value=""/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="eafd19b2-ed41-448d-b0f5-597fecc752ad" targetId="1d44b122-c435-9b49-71a5-c5b078051462" linkType="entry">
               <modifiers/>
@@ -3237,7 +3509,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="8927-dc1c-ac42-c05d" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Las Pistol" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="8/16"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+2/-1"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="2+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="ab7f5b6f-9c5f-52a2-2159-b11c31de5c34" targetId="b99efc86-dbd7-208d-d563-dbf561586513" linkType="entry">
               <modifiers>
@@ -3282,7 +3567,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="5b25-96db-a64a-34e1" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Bolt Pistol" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="8/16"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+2/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="6+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="1ea329ed-f11e-17d6-910b-6d0df90f602f" targetId="1d44b122-c435-9b49-71a5-c5b078051462" linkType="entry">
               <modifiers/>
@@ -3319,7 +3617,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="6b3d-bf24-4976-8bb0" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Hand Flamer" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="-"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-2"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="one shot only. "/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="template weapon, cannot be used in hand-to-hand combat."/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="eb3377e2-b03c-8d2c-fc8b-00716b6e7dda" targetId="1d44b122-c435-9b49-71a5-c5b078051462" linkType="entry">
               <modifiers/>
@@ -3356,7 +3667,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="22e6-c272-c4e9-7a08" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Plasma Pistol" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="6/18"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+2/-1"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4(6)"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1(-3)"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="Max power in parenthesis, can not fire turn after using max power"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="e0ef633f-1ab9-f8e6-7459-20e84415c945" targetId="1d44b122-c435-9b49-71a5-c5b078051462" linkType="entry">
               <modifiers/>
@@ -3381,7 +3705,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="5dcb-0e2e-a08f-75d7" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Needle Pistol" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="8/16"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+2/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="6+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="Toxic Dart, Injuries"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="32f1c004-610b-6ae9-17c4-ac30c5d6ef67" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
@@ -3409,7 +3746,20 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="71b7-28f4-2028-9fc2" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Web Pistol" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="4/8"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-/-1"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="-"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="webb"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="6+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value=""/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="c9a3f6ed-9165-b904-29e5-5228529b03d5" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
@@ -3668,7 +4018,7 @@ This skill may only be used with pistols and basic weapons. It may not be used w
     </entryGroup>
     <entryGroup id="e4088812-5697-21b0-33d5-a13b97af0be9" name="Special Weapons" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false">
       <entries>
-        <entry id="ff695976-ebeb-cad2-ebb9-b2b9b45efde6" name="Plasma" points="70.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
+        <entry id="ff695976-ebeb-cad2-ebb9-b2b9b45efde6" name="Plasma Gun" points="70.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="-1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
           <entries>
             <entry id="f0dd1780-d2fd-a37d-c7e7-894f982ea8bb" name="One in a Million Weapon" points="70.0" categoryId="(No Category)" type="upgrade" minSelections="0" maxSelections="1" minInForce="0" maxInForce="-1" minInRoster="0" maxInRoster="-1" minPoints="0.0" maxPoints="-1.0" collective="false" hidden="false" page="0">
               <entries/>
@@ -3698,7 +4048,20 @@ This skill may only be used with pistols and basic weapons. It may not be used w
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="4919-8d56-7853-70ee" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Plasma Gun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="6/16(24)"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+1/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="5(7)"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1(-2)"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="max power uses parenthisis numbers and gets 1 sustained fire dice. Can not fire turn after max power. "/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="d74aafbc-6021-c2b4-1462-6171c3050dc6" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -3735,7 +4098,20 @@ This skill may only be used with pistols and basic weapons. It may not be used w
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="87fe-ea98-943d-7430" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Flamer" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="-"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="4"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-2"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="template, ammo test after every shot"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="71f20777-a87b-a6c5-a5df-0201214a3615" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -3772,7 +4148,20 @@ This skill may only be used with pistols and basic weapons. It may not be used w
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="8bc7-4df9-7e1d-c6dd" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Meltagun" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="6/12"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="+1/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="8"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="d6"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-4"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="4+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value=""/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="21b83787-48fb-6cdf-25b9-5ce4bdd188d5" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -3797,7 +4186,20 @@ This skill may only be used with pistols and basic weapons. It may not be used w
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="ebf5-aa67-7450-0f98" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Grenade Launcher" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="20/60"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="-/-1"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="-"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="-"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="auto"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="uses grenades"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="369503ad-d452-9244-5755-baa942c64c66" targetId="4d2a54c8-1edd-cd13-c022-be65faa36ce0" linkType="entry group">
               <modifiers/>
@@ -3822,7 +4224,20 @@ This skill may only be used with pistols and basic weapons. It may not be used w
           <entryGroups/>
           <modifiers/>
           <rules/>
-          <profiles/>
+          <profiles>
+            <profile id="daca-95d7-ae99-b692" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" name="Needle Rifle" hidden="false">
+              <characteristics>
+                <characteristic characteristicId="a275054b-9b3d-9e68-49e9-7fbb6c714412" name="Range (S/L)" value="16/32"/>
+                <characteristic characteristicId="432325e7-e73e-5f82-214c-1fe8e1f13530" name="To Hit (S/L)" value="1+/-"/>
+                <characteristic characteristicId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" name="Str" value="3"/>
+                <characteristic characteristicId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" name="Dam" value="1"/>
+                <characteristic characteristicId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" name="Save" value="-1"/>
+                <characteristic characteristicId="9ade197e-7490-9b76-f53f-867162331e22" name="Ammo" value="6+"/>
+                <characteristic characteristicId="fde90816-abbb-f019-75a0-0c24662facf3" name="Special" value="Toxic Dart. No wound roll is required when shooting a needler, if the target is hit then the toxins will automatically inflict 1 wound. Armour may still save a target as normal. Toxic Injury table"/>
+              </characteristics>
+              <modifiers/>
+            </profile>
+          </profiles>
           <links>
             <link id="ac67ddcc-0788-865f-8925-f07a3a79dcea" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" linkType="entry">
               <modifiers/>
