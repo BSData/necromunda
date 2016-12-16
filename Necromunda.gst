@@ -40,6 +40,14 @@
         <characteristicType id="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" name="Special"/>
       </characteristicTypes>
     </profileType>
+    <profileType id="30b1-f267-e8cf-7a25" name="Grenade/Missile">
+      <characteristicTypes>
+        <characteristicType id="c44c-9116-c047-84a3" name="Str"/>
+        <characteristicType id="0593-b3fb-6794-f46a" name="Dam"/>
+        <characteristicType id="6b4f-5054-6099-22eb" name="Save"/>
+        <characteristicType id="1b7e-bc2c-e43b-93ba" name="Blast"/>
+      </characteristicTypes>
+    </profileType>
   </profileTypes>
   <forceEntries>
     <forceEntry id="7451d7da-3cc0-0299-775b-2f48162a731d" name="Gang" hidden="false">
@@ -949,11 +957,19 @@ Injury: If a fighter with a bionic leg suffers another leg injury, randomly dete
           <selectionEntries/>
           <selectionEntryGroups/>
           <entryLinks>
-            <entryLink id="1d08690d-8745-f9a2-c3e0-fce90ff87d87" hidden="false" targetId="e4088812-5697-21b0-33d5-a13b97af0be9" type="selectionEntryGroup">
+            <entryLink id="1d08690d-8745-f9a2-c3e0-fce90ff87d87" hidden="true" targetId="e4088812-5697-21b0-33d5-a13b97af0be9" type="selectionEntryGroup">
               <profiles/>
               <rules/>
               <infoLinks/>
-              <modifiers/>
+              <modifiers>
+                <modifier type="set" field="hidden" value="false">
+                  <repeats/>
+                  <conditions>
+                    <condition field="selections" scope="73da49ea-4865-7c03-e2d4-75027628db60" value="0.0" percentValue="false" shared="false" includeChildSelections="true" includeChildForces="false" childId="f2563d68-d2a7-6760-6b52-7748887e0583" type="equalTo"/>
+                  </conditions>
+                  <conditionGroups/>
+                </modifier>
+              </modifiers>
               <constraints/>
             </entryLink>
             <entryLink id="30c3e5f1-ed3c-50d1-cdf3-80ac02168fe5" hidden="false" targetId="4bc54f8a-7963-e9f4-a9d0-8d5d8d6ddc58" type="selectionEntryGroup">
@@ -1908,11 +1924,19 @@ Overwatch: The sight is no advantage against a suddenly appearing or fleeting ta
           <selectionEntries/>
           <selectionEntryGroups/>
           <entryLinks>
-            <entryLink id="caa680fe-e4b1-73f4-d6d4-ed0674d33589" hidden="false" targetId="e4088812-5697-21b0-33d5-a13b97af0be9" type="selectionEntryGroup">
+            <entryLink id="caa680fe-e4b1-73f4-d6d4-ed0674d33589" hidden="true" targetId="e4088812-5697-21b0-33d5-a13b97af0be9" type="selectionEntryGroup">
               <profiles/>
               <rules/>
               <infoLinks/>
-              <modifiers/>
+              <modifiers>
+                <modifier type="set" field="hidden" value="false">
+                  <repeats/>
+                  <conditions>
+                    <condition field="selections" scope="366296e6-3688-5fd0-859c-d6513b8cdf90" value="1.0" percentValue="false" shared="false" includeChildSelections="true" includeChildForces="false" childId="f2563d68-d2a7-6760-6b52-7748887e0583" type="equalTo"/>
+                  </conditions>
+                  <conditionGroups/>
+                </modifier>
+              </modifiers>
               <constraints/>
             </entryLink>
             <entryLink id="eb8eeaea-2d23-767a-28d4-22ad74432b7d" hidden="false" targetId="4bc54f8a-7963-e9f4-a9d0-8d5d8d6ddc58" type="selectionEntryGroup">
@@ -3009,11 +3033,40 @@ Overwatch: The sight is no advantage against a suddenly appearing or fleeting ta
             <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
             <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-2"/>
             <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
-            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="template, ammo test after every shot"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Template weapon. Flaming attack, target may catch fire. Ammo test."/>
           </characteristics>
         </profile>
       </profiles>
-      <rules/>
+      <rules>
+        <rule id="1e08-e61f-c813-f502" name="Ammo Test" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>An Ammo test is required every time the flamer is fired regardless of your to hit roll. Flamers are unreliable weapons, and can only be counted upon to fire once or twice per engagement.</description>
+        </rule>
+        <rule id="85cb-ee83-2683-4c85" name="Template" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>The flamer&apos;s shot is represented by the larger teardrop-shaped flamer template. This is used as described in the Shooting section, by placing the template so that it covers one or more target models. Any models wholly under the template are hit automatically, whilst those partially beneath are hit on the D6 roll of a 4, 5 or 6.</description>
+        </rule>
+        <rule id="53ff-4cc2-92f0-541b" name="Catching Fire" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>If a model is hit by a flamer and goes down then the target has absorbed the full brunt of the blast at the flames go out with no further effect. If the model goes out of action then remove the model as normal. If a model is hit but does not go down or out of action, then take an immediate test to determine whether the target catches fire. Roll a D6. On the score of a 1-3 the target does not ignite and there is no further effect. On the score of a 4-6 the large ignites. A burning target will continue to burn until the flames at extinguished. Test for this at the start of the fighter&apos;s own turn. Roll a D6.
+
+1-5: The model continues to burn and automatically sustains a further Strength 4 hit. If a model goes down or Out of action whilst On fire the flames automatically go out with no further effect. Whilst burning the fighter&apos;s nerve is automatically broken as described in the Leadership Tests section, except that the model moves 2D6&quot; in a random direction rather than towards cover (a random direction can be established using the Scatter dice). A burning model will not engage in hand-to-hand fighting and other models automatically move out of his way.
+6: The flames go out with no further effect.
+
+If there are any models within 1&quot; of the burning fighter during their movement phase then they may attempt to beat out the flames. If they do this they cannot shoot in the shooting phase. Roll a D6 and add a +1 for each extra model attempting to beat out the flames (e.g., 2 models 1). If the total is 6 the flames are beaten out with no further effect.
+
+A frenzied fighter who catches fire will ignore the flames and continue to move, shoot and fight despite burning up, i.e. will, however, continue to take damage as described above.</description>
+        </rule>
+      </rules>
       <infoLinks/>
       <modifiers/>
       <constraints/>
@@ -3060,7 +3113,7 @@ Overwatch: The sight is no advantage against a suddenly appearing or fleeting ta
             <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="-"/>
             <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="-"/>
             <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-"/>
-            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="auto"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="Auto"/>
             <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="As grenade type. Move or fire."/>
           </characteristics>
         </profile>
@@ -3230,16 +3283,36 @@ Note that sustained fire can only be used when shooting on the maximum energy se
           <modifiers/>
           <characteristics>
             <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="16/32"/>
-            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="1+/-"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="+1/-"/>
             <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="3"/>
             <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
             <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-1"/>
             <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
-            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Toxic Dart. No wound roll is required when shooting a needler, if the target is hit then the toxins will automatically inflict 1 wound. Armour may still save a target as normal. Toxic Injury table"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Toxic Dart, Injuries"/>
           </characteristics>
         </profile>
       </profiles>
-      <rules/>
+      <rules>
+        <rule id="7e07-9279-9007-1861" name="Injuries" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>A target suffering his final wound from a toxic dart does not roll on the standard Injury chart. Instead, roll on the chart below both when the injury is inflicted and in subsequent recovery phases.
+
+1-2: No Effect. The toxin has no effect or wears off. The target may continue to fight in the Same way as if he&apos;d suffered a flesh wound except that he suffers no penalties on his WS/BS.
+3-4: Sedated. The target shrugs off the full effect of the toxin or recovers sufficiently to crawl up to 2&quot; but can do nothing else. This is the same as a normal &apos;down result.
+5: Comatose. The target is knocked comatose and falls to the ground. The target cannot me at all.
+6: Out of Action. The target slumps lifelessly to the ground. He may be dead or barely living but is overcome by the toxin for the rest of the game. Remove the model as you would any other that was out of action.</description>
+        </rule>
+        <rule id="97a7-7b38-2542-4c49" name="Toxic Dart" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>No wound roll is required when shooting a needler, if the target is hit then the toxins will automatically inflict 1 wound. Armour may still save a target as normal.</description>
+        </rule>
+      </rules>
       <infoLinks/>
       <modifiers/>
       <constraints/>
@@ -3410,12 +3483,41 @@ Note that sustained fire can only be used when shooting on the maximum energy se
             <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="4"/>
             <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
             <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-2"/>
-            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="one shot only. "/>
-            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="template weapon, cannot be used in hand-to-hand combat."/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Template weapon. Flaming attack - target may catch fire"/>
           </characteristics>
         </profile>
       </profiles>
-      <rules/>
+      <rules>
+        <rule id="f6c7-d63b-e471-6e52" name="Ammo Test" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>An Ammo test is required every time the flamer is fired regardless of your to hit roll. Flamers are unreliable weapons, and can only be counted upon to fire once or twice per engagement.</description>
+        </rule>
+        <rule id="b22a-7b12-7013-fc23" name="Catching Fire" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>If a model is hit by a flamer and goes down then the target has absorbed the full brunt of the blast at the flames go out with no further effect. If the model goes out of action then remove the model as normal. If a model is hit but does not go down or out of action, then take an immediate test to determine whether the target catches fire. Roll a D6. On the score of a 1-3 the target does not ignite and there is no further effect. On the score of a 4-6 the large ignites. A burning target will continue to burn until the flames at extinguished. Test for this at the start of the fighter&apos;s own turn. Roll a D6.
+
+1-5: The model continues to burn and automatically sustains a further Strength 4 hit. If a model goes down or Out of action whilst On fire the flames automatically go out with no further effect. Whilst burning the fighter&apos;s nerve is automatically broken as described in the Leadership Tests section, except that the model moves 2D6&quot; in a random direction rather than towards cover (a random direction can be established using the Scatter dice). A burning model will not engage in hand-to-hand fighting and other models automatically move out of his way.
+6: The flames go out with no further effect.
+
+If there are any models within 1&quot; of the burning fighter during their movement phase then they may attempt to beat out the flames. If they do this they cannot shoot in the shooting phase. Roll a D6 and add a +1 for each extra model attempting to beat out the flames (e.g., 2 models 1). If the total is 6 the flames are beaten out with no further effect.
+
+A frenzied fighter who catches fire will ignore the flames and continue to move, shoot and fight despite burning up, i.e. will, however, continue to take damage as described above.</description>
+        </rule>
+        <rule id="7ca7-40dd-0e3f-542a" name="Template" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>The hand flamer&apos;s shot is represented by the smaller teardrop-shaped flamer template. This is used as described in the Shooting section, by placing the template so that it covers one or more target models. Any models wholly under the template are hit automatically, whilst those partially beneath are hit on the D6 roll of a 4, 5 or 6.</description>
+        </rule>
+      </rules>
       <infoLinks/>
       <modifiers/>
       <constraints/>
@@ -3532,7 +3634,27 @@ Note that sustained fire can only be used when shooting on the maximum energy se
           </characteristics>
         </profile>
       </profiles>
-      <rules/>
+      <rules>
+        <rule id="4045-dbc2-53f7-093f" name="Injuries" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>A target suffering his final wound from a toxic dart does not roll on the standard Injury chart. Instead, roll on the chart below both when the injury is inflicted and in subsequent recovery phases.
+
+1-2: No Effect. The toxin has no effect or wears off. The target may continue to fight in the Same way as if he&apos;d suffered a flesh wound except that he suffers no penalties on his WS/BS.
+3-4: Sedated. The target shrugs off the full effect of the toxin or recovers sufficiently to crawl up to 2&quot; but can do nothing else. This is the same as a normal &apos;down result.
+5: Comatose. The target is knocked comatose and falls to the ground. The target cannot me at all.
+6: Out of Action. The target slumps lifelessly to the ground. He may be dead or barely living but is overcome by the toxin for the rest of the game. Remove the model as you would any other that was out of action.</description>
+        </rule>
+        <rule id="0a70-cf85-a4db-d7ad" name="Toxic Dart" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>No wound roll is required when shooting a needler, if the target is hit then the toxins will automatically inflict 1 wound. Armour may still save a target as normal.</description>
+        </rule>
+      </rules>
       <infoLinks/>
       <modifiers/>
       <constraints/>
@@ -3735,14 +3857,29 @@ Note that sustained fire can only be used when shooting on the maximum energy se
             <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="4/8"/>
             <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-/-1"/>
             <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="-"/>
-            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="webb"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="Special"/>
             <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-"/>
             <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
-            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value=""/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Fires web"/>
           </characteristics>
         </profile>
       </profiles>
-      <rules/>
+      <rules>
+        <rule id="f0a9-02b6-e779-60c9" name="Webbed Targets" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>Once a web pistol has hit its target the victim is automatically enmeshed - there is no roll for wounds or injuries and no saving roll is allowed for armour. A webbed target may do nothing other that attempt to struggle free at the start of its turn. If the fighter wishes to make an attempt to struggle free roll a D6 and add the model&apos;s Strength. If the total is 9 or more the victim frees himself from the web and may continue normally. If the total is less than 9 then the victim suffers 1 wound immediately, though an armour save may be attempted if the victim has armour.</description>
+        </rule>
+        <rule id="0b86-c1a7-ceea-5490" name="Freeing Webs" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>All web pistols incorporate a solvent spray for removing the web material. Any model that has a web pistol may automatically free a webbed fighter at the start of the turn if he is within 1&quot;. However, a model can never free itself from a web using a web pistol, as the strands are far too tight to allow the fighter to reach his solvent spray.</description>
+        </rule>
+      </rules>
       <infoLinks/>
       <modifiers/>
       <constraints/>
@@ -4283,19 +4420,16 @@ Note that sustained fire can only be used when shooting on the maximum energy se
     </selectionEntry>
     <selectionEntry id="719f-da24-f85d-d9be" name="Frag Missiles" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
       <profiles>
-        <profile id="33f6-146a-f9ff-30b6" name="Frag Missiles" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+        <profile id="33f6-146a-f9ff-30b6" name="Frag Missiles" hidden="false" profileTypeId="30b1-f267-e8cf-7a25" profileTypeName="Grenade/Missile">
           <profiles/>
           <rules/>
           <infoLinks/>
           <modifiers/>
           <characteristics>
-            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
-            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="4"/>
-            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
-            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-1"/>
-            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value=""/>
-            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="blast"/>
+            <characteristic name="Str" characteristicTypeId="c44c-9116-c047-84a3" value="4"/>
+            <characteristic name="Dam" characteristicTypeId="0593-b3fb-6794-f46a" value="1"/>
+            <characteristic name="Save" characteristicTypeId="6b4f-5054-6099-22eb" value="-1"/>
+            <characteristic name="Blast" characteristicTypeId="1b7e-bc2c-e43b-93ba" value="2&quot; radius"/>
           </characteristics>
         </profile>
       </profiles>
@@ -4313,19 +4447,16 @@ Note that sustained fire can only be used when shooting on the maximum energy se
     </selectionEntry>
     <selectionEntry id="a4ce-dc58-135b-d7c1" name="Krak Missiles" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
       <profiles>
-        <profile id="8fe7-f35b-37fa-9611" name="Krak Missiles" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+        <profile id="8fe7-f35b-37fa-9611" name="Krak Missiles" hidden="false" profileTypeId="30b1-f267-e8cf-7a25" profileTypeName="Grenade/Missile">
           <profiles/>
           <rules/>
           <infoLinks/>
           <modifiers/>
           <characteristics>
-            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
-            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="8"/>
-            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="d6"/>
-            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-6"/>
-            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="-"/>
-            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="High Impact"/>
+            <characteristic name="Str" characteristicTypeId="c44c-9116-c047-84a3" value="8"/>
+            <characteristic name="Dam" characteristicTypeId="0593-b3fb-6794-f46a" value="D10"/>
+            <characteristic name="Save" characteristicTypeId="6b4f-5054-6099-22eb" value="-6"/>
+            <characteristic name="Blast" characteristicTypeId="1b7e-bc2c-e43b-93ba" value="None"/>
           </characteristics>
         </profile>
       </profiles>
@@ -4355,6 +4486,845 @@ Note that sustained fire can only be used when shooting on the maximum energy se
       <selectionEntryGroups/>
       <entryLinks/>
       <costs/>
+    </selectionEntry>
+    <selectionEntry id="44a7-7ea3-8b95-db96" name="Autocannon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles>
+        <profile id="4c3b-cd95-e4e8-50e7" name="Autocannon" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="8"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="D6"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-3"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Sustained fire - 1 dice"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries>
+        <selectionEntry id="fde8-3519-bdcf-04d5" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="001a-a603-8147-cdc7" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="a6ae-c3ad-76d8-d380" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="300.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+        <selectionEntry id="9ca8-4ea0-4ef5-7d35" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="00b8-236f-61fe-e28d" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="c7c5-0157-29ab-d1aa" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="150.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="ac26-46bb-b0f1-8d45" name="New EntryLink" hidden="false" targetId="2284-83d2-1b4a-313c" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="300.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="1c76-0263-2487-22b2" name="Heavy Bolter" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles>
+        <profile id="961e-789a-62ec-27d8" name="Heavy Bolter" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/40"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="5"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="D4"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-2"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Sustained Fire - 2 dice"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries>
+        <selectionEntry id="efa1-9da9-e445-cd6d" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="839d-930d-9e8e-ca32" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="48c6-a70a-a733-1330" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="180.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+        <selectionEntry id="8a82-a1b8-7047-8114" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="fccd-0d54-91ae-52cf" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="9856-37df-184c-8ab2" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="90.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="5fad-369e-e56f-55d5" name="New EntryLink" hidden="false" targetId="2284-83d2-1b4a-313c" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="180.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="dccd-2740-1f55-3551" name="Heavy Plasma Gun" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles>
+        <profile id="bd5d-9ed7-f03a-c130" name="Heavy Plasma Gun (High)" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-/-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="10"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="D10"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-6"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="1.5&quot; blast. Max power. Takes one entire turn to recharge after firing."/>
+          </characteristics>
+        </profile>
+        <profile id="043d-9634-9320-6830" name="Heavy Plasma Gun (Low)" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/40"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-/-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="7"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="D4"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-2"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="1.5&quot; blast. Low energy."/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules>
+        <rule id="e779-82e7-4200-39ac" name="Energy Levels" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>You can choose to shoot the weapon on a low energy setting or maximum power. The profiles for each setting are different. If you shoot the weapon on maximum power then you cannot shoot again until it has recharged. It takes the firer&apos;s entire following turn for the weapon to recharge once more. This restriction does not apply on the low energy setting.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries>
+        <selectionEntry id="91ee-4898-f5bc-1fb8" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="bc6a-91bd-04ab-e92f" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="e451-1ba2-7582-2617" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="285.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+        <selectionEntry id="f428-2534-1e00-d4f4" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="550e-c545-640c-5fb2" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="51b1-1712-dbc9-f197" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="143.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="6dd7-7bd3-e3f4-3351" name="New EntryLink" hidden="false" targetId="2284-83d2-1b4a-313c" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="285.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="c06a-2c1c-98e2-0150" name="Heavy Stubber" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles>
+        <profile id="a9db-2ec5-dd63-f1de" name="Heavy Stubber" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/40"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="4"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-1"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Sustaned Fire - 2 dice"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries>
+        <selectionEntry id="0551-7382-e515-e5cb" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="a271-3b5c-cc08-a01e" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="41b9-2a11-a40d-7dfd" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="120.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+        <selectionEntry id="51d2-1ae6-7f37-775a" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="6d87-8d2a-8401-e65a" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="16ac-24d9-147b-9e6b" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="60.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="2495-e4f4-1f19-06df" name="New EntryLink" hidden="false" targetId="2284-83d2-1b4a-313c" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="120.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="90d7-d0ef-da1d-7c4a" name="Lascannon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles>
+        <profile id="8cf2-2f17-4c92-8d62" name="Lascannon" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/60"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="9"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="2D6"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-6"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries>
+        <selectionEntry id="d036-294c-e639-fc25" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="346d-2a27-ea95-3777" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="a9b9-225f-428b-30be" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="400.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+        <selectionEntry id="e7bf-b65b-9c5c-9250" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="7a27-3017-9a0f-2ef5" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="3dbc-0344-444e-ed47" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="200.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="ce5f-62ab-b82f-33df" name="New EntryLink" hidden="false" targetId="2284-83d2-1b4a-313c" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="400.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="52ca-b2a5-9716-fa5d" name="Missile Launcher" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles>
+        <profile id="d2ee-3391-166c-ecbb" name="Missile Launcher" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="-"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="-"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="Auto"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="As missile type"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries>
+        <selectionEntry id="b227-a7b3-7e15-ef72" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+          <profiles/>
+          <rules/>
+          <infoLinks>
+            <infoLink id="eee3-f0f6-2a47-eb61" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+            </infoLink>
+          </infoLinks>
+          <modifiers/>
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="b76b-0ee3-d21e-d662" type="max"/>
+          </constraints>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs>
+            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="185.0"/>
+            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="be69-d6e1-4a43-8c0b" hidden="false" targetId="b5febb66-7aa9-5f09-968d-46922fdfdc90" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+        <entryLink id="c842-ade0-1c95-fdca" name="New EntryLink" hidden="false" targetId="2284-83d2-1b4a-313c" type="selectionEntryGroup">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="185.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="5f93-c70d-88fa-5447" name="Bionic Arm" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles/>
+      <rules>
+        <rule id="b9bd-0899-9794-c101" name="Bionic Arm" page="0" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>Replacement: A bionic arm cancels out the effect of one serious arm injury the fighter has sustained.
+
+Characteristic Bonus: The fighter receives a +1 Strength bonus on his own strength when fighting in hand-to-hand combat or when throwing grenades. He also receives a +1 Initiative bonus when fighting hand-to-hand combat.
+
+Injury: If a fighter with a bionic arm suffers a further arm injury randomly determine which arm is affected: the fighter’s real arm or his bionic arm. Any damage to a bionic arm will destroy it.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="5349-c018-68ea-282c" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="80.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="85f4-3311-b111-f678" name="Bionic Eye" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles/>
+      <rules>
+        <rule id="7733-c2c2-95ea-92a9" name="Bionic Eye" page="0" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>Replacement: A bionic eye cancels out the effect of one serious eye injury the fighter has sustained.
+
+Photosensitive: The fighter may re-roll a failed save against blinding by a Photon Flash flare (D6 against Initiative). He may also see past and shoot through smoke with a -1 to hit penalty.
+
+Injury: lf a fìghter with a bionic eye suffers a further eye injury then randomly determine which eye is damaged - his real eye or his artificial eye. Any damage to a bionic eye will destroy it.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="c4d0-8ff8-4033-824c" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="50.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="fe2b-c9f5-3f26-8af1" name="Carapace Armour" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles/>
+      <rules>
+        <rule id="ecc1-2f51-a3d8-eabe" name="Carapace Armour" page="0" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>Save: A fighter wearing carapace armour has a basic D6 saving throw of 4, 5 or 6 against a wound.
+
+Initiative: Because of its weight a fighter wearing carapace armour counts his Initiative characteristic as only half its actual value, rounding up.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="2c29-10be-a715-5851" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="70.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="6b4f-9511-bb09-63f3" name="Mesh Armour" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles/>
+      <rules>
+        <rule id="01cd-1b78-2bdf-4e27" name="Mesh Armour" page="0" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>Save: A fighter wearing mesh armour has a basic D6 saving throw of 5 or 6 against a wound.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="6a8b-70ec-02df-6eb9" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="25.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="1aa6-748f-a53b-5ed7" name="Flak Armour" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
+      <profiles/>
+      <rules>
+        <rule id="b1d9-52ee-ef17-18eb" name="Flak Armour" page="0" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>Save: A fighter wearing flak armour has a basic D6 saving throw of 6 against a wound. This is increased to 5 or 6 against weapons which use a template as these are generally the low velocity weapons that flak is most effective against.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks>
+        <entryLink id="279f-8a02-c55f-7396" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="10.0"/>
+        <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="c29d-bdf1-9ce1-9425" name="Eviscerator" hidden="false" collective="false" type="upgrade">
+      <profiles>
+        <profile id="4d0a-e708-aa41-1ba4" name="Eviscerator" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="As user +3"/>
+            <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="D3"/>
+            <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-3"/>
+            <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" value="May not be parried"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules>
+        <rule id="cced-72c2-8438-84a6" name="Eviscerator" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>The Eviscerator is so heavy and dangerous that it is impossible to parry. However the Eviscerator does not encourage a very elegant fighting style so in the case of a draw the model with the Eviscerator will automatically lose and suffer 1 hit regardless of the two combatants&apos; Initiative scores.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks/>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="30.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="9a62-a8fd-184e-6dbe" name="Blunderbuss" hidden="false" collective="false" type="upgrade">
+      <profiles>
+        <profile id="7222-6be0-9e2f-ab93" name="Blunderbuss" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" profileTypeName="Ranged Weapon">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="6/9"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="+3/-1"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="3"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="Special"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks/>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="8.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="e8fa-f096-1bc3-f276" name="Handbow" hidden="false" collective="false" type="upgrade">
+      <profiles>
+        <profile id="7d8f-ce23-e58d-0c3a" name="Handbow" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" profileTypeName="Ranged Weapon">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="8/16"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-/-1"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="4"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="Special"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Move or fire"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules>
+        <rule id="81cc-7f93-f313-5137" name="Handbow" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <description>While the heavy arrow of a handbow can pierce flesh easily it lacks the momentum lo punch through thick, rigid armour. Any target with an armour Saving throw of 4+ or better has its armour save increased to 2+ when hit by a handbow arrow.</description>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks/>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="5.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="c463-5649-985a-9875" name="Musket" hidden="false" collective="false" type="upgrade">
+      <profiles>
+        <profile id="658c-a24d-4de2-3ada" name="Musket" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec" profileTypeName="Ranged Weapon">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="12/24"/>
+            <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-/-1"/>
+            <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="3"/>
+            <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
+            <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-1"/>
+            <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
+            <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Move or fire"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks/>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="6.0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="fb4f-201b-5f19-2b08" name="Tox Bomb" hidden="false" collective="false" type="upgrade">
+      <profiles>
+        <profile id="b35c-6c1b-a4a8-1ddc" name="Tox Bomb" hidden="false" profileTypeId="30b1-f267-e8cf-7a25" profileTypeName="Grenade/Missile">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <characteristics>
+            <characteristic name="Str" characteristicTypeId="c44c-9116-c047-84a3" value="4"/>
+            <characteristic name="Dam" characteristicTypeId="0593-b3fb-6794-f46a" value="1"/>
+            <characteristic name="Save" characteristicTypeId="6b4f-5054-6099-22eb" value="-"/>
+            <characteristic name="Blast" characteristicTypeId="1b7e-bc2c-e43b-93ba" value="Special"/>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules>
+        <rule id="f8d7-903b-69db-9e01" name="Tox Bomb" hidden="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+        </rule>
+      </rules>
+      <infoLinks/>
+      <modifiers/>
+      <constraints/>
+      <selectionEntries/>
+      <selectionEntryGroups/>
+      <entryLinks/>
+      <costs>
+        <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="20.0"/>
+      </costs>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedSelectionEntryGroups>
@@ -5168,546 +6138,52 @@ If a model successfully dodges from a weapon which uses a template or blast mark
       <infoLinks/>
       <modifiers/>
       <constraints/>
-      <selectionEntries>
-        <selectionEntry id="4b741f76-ffb0-5bcb-912f-b8e6cf675525" name="Heavy Plasma Gun" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles>
-            <profile id="2667-633f-360c-4daa" name="Heavy Plasma Gun" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <characteristics>
-                <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/40"/>
-                <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-                <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="7(10)"/>
-                <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="d3(d6)"/>
-                <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-2(-6)"/>
-                <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
-                <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Parenthesis is max power, takes a turn to recharge after fireing max. Blast, High Impact"/>
-              </characteristics>
-            </profile>
-          </profiles>
-          <rules/>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries>
-            <selectionEntry id="da75b802-1ce0-0a00-700f-b91cb01debe3" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="9f48d129-e2ab-8411-baea-f09439c919e3" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="285.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-            <selectionEntry id="1511fbd7-e290-5335-f904-d21c5719615e" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="b1cfe99f-50a5-5fad-bba2-b80af35b96f0" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="143.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-          </selectionEntries>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="48d469b9-ddf3-795d-716c-0c35ac31f1af" hidden="false" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="75caecde-f5c3-3639-1c84-6cefe85c338a" hidden="false" targetId="5947e282-1701-5708-f83f-5e972a64c756" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="285.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="09e69db5-d5cc-485e-976f-c3948dc2b897" name="Heavy Stubber" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles>
-            <profile id="8da0-c61c-d0e9-464b" name="Heavy Stubber" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <characteristics>
-                <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/40"/>
-                <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-                <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="4"/>
-                <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="1"/>
-                <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-1"/>
-                <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
-                <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Sustaned fire 2 dice"/>
-              </characteristics>
-            </profile>
-          </profiles>
-          <rules/>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries>
-            <selectionEntry id="d4ec18d4-3ca3-b0c6-62d8-7f2fecc9b3d3" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="68c63fbb-49ba-17ef-aea8-f30d2d948c46" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="120.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-            <selectionEntry id="919dd42b-a246-d297-693c-ab36b3b239a1" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="4e1d5001-6abf-3b82-555c-d9c69340c169" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="60.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-          </selectionEntries>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="6e6e404b-d647-fc0d-405a-4bce11efef8e" hidden="false" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="b0e0e77b-7462-77cb-3dc9-be09e5d07106" hidden="false" targetId="5947e282-1701-5708-f83f-5e972a64c756" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="120.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="a5dc466c-bc06-dd40-4a81-7b076899733e" name="Lascannon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles>
-            <profile id="1d5c-80ee-bce9-9365" name="Lascannon" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <characteristics>
-                <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/60"/>
-                <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-                <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="9"/>
-                <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="2d6"/>
-                <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-6"/>
-                <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
-                <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3"/>
-              </characteristics>
-            </profile>
-          </profiles>
-          <rules/>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries>
-            <selectionEntry id="e6857b33-8981-68f3-7ec5-a4b2955fe58f" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="594ff73e-c863-fba8-addf-f24a270c254d" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="400.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-            <selectionEntry id="4facc8bd-b29e-60d6-3a75-8d2550e2fe1a" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="b6f3d009-2e82-d1ad-f75d-682ff04df023" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="200.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-          </selectionEntries>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="bfb9e153-1d69-8402-db34-9bee3043c792" hidden="false" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="518a8fb5-54ba-4b5a-547f-7b5d31fa87b1" hidden="false" targetId="5947e282-1701-5708-f83f-5e972a64c756" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="400.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="5d486605-9b54-3fb1-d683-be2c6735b5c7" name="Autocannon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles>
-            <profile id="802a-3764-23a6-0c87" name="Autocannon" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <characteristics>
-                <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
-                <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-                <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="8"/>
-                <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="d6"/>
-                <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-3"/>
-                <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="4+"/>
-                <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="1 dice sustained fire High Impact"/>
-              </characteristics>
-            </profile>
-          </profiles>
-          <rules/>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries>
-            <selectionEntry id="7a2939ff-4966-ff0e-7158-4055a9752839" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="07398664-4052-813b-ca50-f8f35aa179ec" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="300.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-            <selectionEntry id="dd564480-f7be-c86b-10f9-ad25e83251e7" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="b9bdc3bb-6f3b-6134-bdea-dfce1b90a180" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="150.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-          </selectionEntries>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="1953c5ce-706f-2148-33bb-566b1b66f723" hidden="false" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="3d360ee0-3cb1-6a9b-35a3-5a5c482d1dc8" hidden="false" targetId="5947e282-1701-5708-f83f-5e972a64c756" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="300.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="fb0f2638-6022-6821-be20-55622c1ac275" name="Heavy Bolter" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles>
-            <profile id="c218-c49c-d88f-ddf6" name="Heavy Bolter" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <characteristics>
-                <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/40"/>
-                <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-                <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="5"/>
-                <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="d3"/>
-                <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="-2"/>
-                <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="6+"/>
-                <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="Sustained Fire 2 Dice"/>
-              </characteristics>
-            </profile>
-          </profiles>
-          <rules/>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries>
-            <selectionEntry id="6e9e20f8-e541-3a7a-513f-4f42304f4bd1" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="f703f295-434a-8c06-8e0a-3dd5372908df" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="180.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-            <selectionEntry id="8dcab9bd-9588-888b-47d1-6415cbebc497" name="Weapon Reload" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="788ae21c-eaea-e1d3-d2e2-5f9b7ade2c7c" hidden="false" targetId="588df0e5-2648-b86d-344f-7c83057a5351" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="90.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-          </selectionEntries>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="47925c55-9404-be41-bd06-db146f7e2bfd" hidden="false" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="7030e324-bf41-7ccb-6738-6acdb0dfd135" hidden="false" targetId="5947e282-1701-5708-f83f-5e972a64c756" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="180.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="297cd98f-0f50-d9ef-3466-e751f812a052" name="Missile Launcher" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles>
-            <profile id="5e0e-7223-0f2a-b8f2" name="Missile Launcher" hidden="false" profileTypeId="c4b0233c-e5d1-2b41-3446-45a745fbbbec">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <characteristics>
-                <characteristic name="Range (S/L)" characteristicTypeId="a275054b-9b3d-9e68-49e9-7fbb6c714412" value="20/72"/>
-                <characteristic name="To Hit (S/L)" characteristicTypeId="432325e7-e73e-5f82-214c-1fe8e1f13530" value="-"/>
-                <characteristic name="Str" characteristicTypeId="0e9e02bf-4d20-7ac3-d67f-67172b142b5c" value="as missle"/>
-                <characteristic name="Dam" characteristicTypeId="e2cf5d30-87d0-6a67-19ca-eb0c13760f5e" value="as missle"/>
-                <characteristic name="Save" characteristicTypeId="7623a6af-cb6c-41ac-b776-d0c7aff5696f" value="as missle"/>
-                <characteristic name="Ammo" characteristicTypeId="9ade197e-7490-9b76-f53f-867162331e22" value="auto fail"/>
-                <characteristic name="Special" characteristicTypeId="fde90816-abbb-f019-75a0-0c24662facf3" value="missiles"/>
-              </characteristics>
-            </profile>
-          </profiles>
-          <rules/>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries>
-            <selectionEntry id="ab5212a0-3ae2-52c5-fdc1-0ad12361d875" name="One in a Million Weapon" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-              <profiles/>
-              <rules/>
-              <infoLinks>
-                <infoLink id="65b03de9-6566-2574-3d52-4fda52576859" hidden="false" targetId="4a2dec0e-c4a4-5693-e3b7-b1978b06af94" type="rule">
-                  <profiles/>
-                  <rules/>
-                  <infoLinks/>
-                  <modifiers/>
-                </infoLink>
-              </infoLinks>
-              <modifiers/>
-              <constraints>
-                <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="false" id="maxSelections" type="max"/>
-              </constraints>
-              <selectionEntries/>
-              <selectionEntryGroups/>
-              <entryLinks/>
-              <costs>
-                <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="185.0"/>
-                <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-              </costs>
-            </selectionEntry>
-          </selectionEntries>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="fd7eaac0-4603-4bdb-1f10-bb8aaa4e4d8c" hidden="false" targetId="b5febb66-7aa9-5f09-968d-46922fdfdc90" type="selectionEntryGroup">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="2edae721-f33d-3427-2e21-b6407a0c78ab" hidden="false" targetId="ac407181-b3b5-8a20-c927-5417851bfbc5" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-            <entryLink id="74547f7f-ccd1-7bb9-6330-24df150d5b07" hidden="false" targetId="5947e282-1701-5708-f83f-5e972a64c756" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="185.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-      </selectionEntries>
+      <selectionEntries/>
       <selectionEntryGroups/>
-      <entryLinks/>
+      <entryLinks>
+        <entryLink id="000c-e616-9b10-4e4b" name="New EntryLink" hidden="false" targetId="44a7-7ea3-8b95-db96" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+        <entryLink id="509d-dac2-1e8a-7c09" name="New EntryLink" hidden="false" targetId="1c76-0263-2487-22b2" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+        <entryLink id="14f8-df27-a116-aca5" name="New EntryLink" hidden="false" targetId="dccd-2740-1f55-3551" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+        <entryLink id="b8c4-c441-7a28-51d0" name="New EntryLink" hidden="false" targetId="c06a-2c1c-98e2-0150" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+        <entryLink id="af75-048f-25d4-cb34" name="New EntryLink" hidden="false" targetId="90d7-d0ef-da1d-7c4a" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+        <entryLink id="4adc-f94e-51a5-7ec6" name="New EntryLink" hidden="false" targetId="52ca-b2a5-9716-fa5d" type="selectionEntry">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+        </entryLink>
+      </entryLinks>
     </selectionEntryGroup>
     <selectionEntryGroup id="1251ae26-048e-95dc-682d-0ae0eeb6b87d" name="Miscellaneous" hidden="false" collective="false">
       <profiles/>
@@ -5716,166 +6192,6 @@ If a model successfully dodges from a weapon which uses a template or blast mark
       <modifiers/>
       <constraints/>
       <selectionEntries>
-        <selectionEntry id="96f52806-6ec8-f10d-8b13-1ce6b977e650" name="Flak Armour" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles/>
-          <rules>
-            <rule id="c58a4c1d-4fcf-5ffe-b9fe-3a66464cdfa1" name="Flak Armour" page="0" hidden="false">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <description>Save: A fighter wearing flak armour has a basic D6 saving throw of 6 against a wound. This is increased to 5 or 6 against weapons which use a template as these are generally the low velocity weapons that flak is most effective against.</description>
-            </rule>
-          </rules>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries/>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="19ab456e-0225-54c4-3628-391592a138c2" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="10.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="3ba24b03-f7a8-e7aa-8cb0-22986ce87ed5" name="Carapace Armour" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles/>
-          <rules>
-            <rule id="15e07108-7b86-57c2-3721-4e7683cb4bdf" name="Carapace Armour" page="0" hidden="false">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <description>Save: A fighter wearing carapace armour has a basic D6 saving throw of 4, 5 or 6 against a wound.
-
-Initiative: Because of its weight a fighter wearing carapace armour counts his Initiative characteristic as only half its actual value, rounding up.</description>
-            </rule>
-          </rules>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries/>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="5776bfac-34a4-21df-9344-7f8e4471e8dd" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="70.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="0f26cc5c-c27b-19c5-13c9-13d3a775c2e9" name="Mesh Armour" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles/>
-          <rules>
-            <rule id="b36135a3-ca79-fc2d-694f-0ba20cc6f0ed" name="Mesh Armour" page="0" hidden="false">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <description>Save: A fighter wearing mesh armour has a basic D6 saving throw of 5 or 6 against a wound.</description>
-            </rule>
-          </rules>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries/>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="8f77485f-1f1c-35ed-c84e-66fe08b7e5f4" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="25.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="98b298be-dd0f-f54a-f9b8-f5decf7f9160" name="Bionic Arm" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles/>
-          <rules>
-            <rule id="197d7cbc-face-b993-05ca-2fc2b44ca25d" name="Bionic Arm" page="0" hidden="false">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <description>Replacement: A bionic arm cancels out the effect of one serious arm injury the fighter has sustained.
-
-Characteristic Bonus: The fighter receives a +1 Strength bonus on his own strength when fighting in hand-to-hand combat or when throwing grenades. He also receives a +1 Initiative bonus when fighting hand-to-hand combat.
-
-Injury: If a fighter with a bionic arm suffers a further arm injury randomly determine which arm is affected: the fighter’s real arm or his bionic arm. Any damage to a bionic arm will destroy it.</description>
-            </rule>
-          </rules>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries/>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="8af757d5-ff1e-9dcd-2638-b5882872307f" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="80.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry id="0b601627-2865-d1bc-8ea1-072d7a4df6d3" name="Bionic Eye" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
-          <profiles/>
-          <rules>
-            <rule id="7a2f18b5-0632-505d-e95b-95c2eb8f71b6" name="Bionic Eye" page="0" hidden="false">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <description>Replacement: A bionic eye cancels out the effect of one serious eye injury the fighter has sustained.
-
-Photosensitive: The fighter may re-roll a failed save against blinding by a Photon Flash flare (D6 against Initiative). He may also see past and shoot through smoke with a -1 to hit penalty.
-
-Injury: lf a fìghter with a bionic eye suffers a further eye injury then randomly determine which eye is damaged - his real eye or his artificial eye. Any damage to a bionic eye will destroy it.</description>
-            </rule>
-          </rules>
-          <infoLinks/>
-          <modifiers/>
-          <constraints/>
-          <selectionEntries/>
-          <selectionEntryGroups/>
-          <entryLinks>
-            <entryLink id="20f69ce0-feac-c076-d91d-05127d2026aa" hidden="false" targetId="ea4542c3-c8f2-a003-3c0e-b316e85a6937" type="selectionEntry">
-              <profiles/>
-              <rules/>
-              <infoLinks/>
-              <modifiers/>
-              <constraints/>
-            </entryLink>
-          </entryLinks>
-          <costs>
-            <cost name="cr" costTypeId="f4b0-f1d7-806b-f065" value="50.0"/>
-            <cost name="xp" costTypeId="890d-2501-a18d-053c" value="0.0"/>
-          </costs>
-        </selectionEntry>
         <selectionEntry id="3a34230c-adb8-2d4f-1608-4288728d53e3" name="Bio-Booster" page="0" hidden="false" collective="false" categoryEntryId="(No Category)" type="upgrade">
           <profiles/>
           <rules>
@@ -6297,16 +6613,74 @@ Smoke: A fighter wearing a photo-visor can see and move through smoke without pe
           </costs>
         </selectionEntry>
       </selectionEntries>
-      <selectionEntryGroups/>
-      <entryLinks>
-        <entryLink id="8b5bd7e4-e370-29d9-2af6-1698977d7e7d" hidden="false" targetId="e105431b-637c-755b-1558-15e8968a9a64" type="selectionEntry">
+      <selectionEntryGroups>
+        <selectionEntryGroup id="fba3-ec2b-5061-7c52" name="Bionics" hidden="false" collective="false">
           <profiles/>
           <rules/>
           <infoLinks/>
           <modifiers/>
           <constraints/>
-        </entryLink>
-        <entryLink id="b6561f70-c507-2c50-1d40-d91feeace49a" hidden="false" targetId="7faa7f8e-5e6b-5328-3497-d9b8e7334227" type="selectionEntry">
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks>
+            <entryLink id="4458-6ab8-a4bb-12c7" name="New EntryLink" hidden="false" targetId="5f93-c70d-88fa-5447" type="selectionEntry">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <constraints/>
+            </entryLink>
+            <entryLink id="4c69-d8a3-b036-f414" name="New EntryLink" hidden="false" targetId="7faa7f8e-5e6b-5328-3497-d9b8e7334227" type="selectionEntry">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <constraints/>
+            </entryLink>
+            <entryLink id="dc3e-29cb-ed9e-46a6" name="New EntryLink" hidden="false" targetId="85f4-3311-b111-f678" type="selectionEntry">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <constraints/>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup id="3756-f10d-67b1-32d8" name="Armour" hidden="false" collective="false">
+          <profiles/>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks>
+            <entryLink id="bc44-ce5e-e762-f76e" name="New EntryLink" hidden="false" targetId="fe2b-c9f5-3f26-8af1" type="selectionEntry">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <constraints/>
+            </entryLink>
+            <entryLink id="5ba9-745f-ea02-e4f5" name="New EntryLink" hidden="false" targetId="6b4f-9511-bb09-63f3" type="selectionEntry">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <constraints/>
+            </entryLink>
+            <entryLink id="4479-1d4f-a0c0-ae60" name="New EntryLink" hidden="false" targetId="1aa6-748f-a53b-5ed7" type="selectionEntry">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <constraints/>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+      <entryLinks>
+        <entryLink id="8b5bd7e4-e370-29d9-2af6-1698977d7e7d" hidden="false" targetId="e105431b-637c-755b-1558-15e8968a9a64" type="selectionEntry">
           <profiles/>
           <rules/>
           <infoLinks/>
@@ -8250,6 +8624,200 @@ So long as your gang is careful not to sell too many items at once no one will s
           </constraints>
         </entryLink>
       </entryLinks>
+    </selectionEntryGroup>
+    <selectionEntryGroup id="534b-eb41-da16-a039" name="Pit Slave Weapons" hidden="false" collective="false">
+      <profiles/>
+      <rules/>
+      <infoLinks/>
+      <modifiers/>
+      <constraints>
+        <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="832c-ee30-4046-8b23" type="min"/>
+        <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="3e34-87cd-2d5c-a51e" type="max"/>
+      </constraints>
+      <selectionEntries>
+        <selectionEntry id="c944-170d-c88c-b529" name="Rock Drill" hidden="false" collective="false" type="upgrade">
+          <profiles>
+            <profile id="cfbc-73cf-4fba-6ca9" name="Rock Drill" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <characteristics>
+                <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="4"/>
+                <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="1"/>
+                <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-3"/>
+                <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e"/>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules>
+            <rule id="13dc-0fd9-5c3f-344c" name="Rock Drill" hidden="false">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <description>Mining slaves are commonly modified to carry a. massive drill for boring through slag and rock. The rock drill makes a fearsome weapon in hand-to-hand combat. If the pit slave inflicts 2 or more hits in combat then he exchanges all the hits for a single hit with increased strength and damage as he drills through his opponent&apos;s body. The bonus equals +1 strength and +1 damage for each hit after the first, so you exchange 2 hits for a single S5 hit causing 2 wounds, 3 hits for a single S6 hit causing 3 wounds and so on.</description>
+            </rule>
+          </rules>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs/>
+        </selectionEntry>
+        <selectionEntry id="6803-e17f-6da7-90f9" name="Claw" hidden="false" collective="false" type="upgrade">
+          <profiles>
+            <profile id="8498-02c7-ad14-d976" name="Claw" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <characteristics>
+                <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="4"/>
+                <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="1"/>
+                <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-1"/>
+                <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e"/>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules>
+            <rule id="c702-3c64-db8a-fe00" name="Claw" hidden="false">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <description>A claw or big grabber is used in a variety of mining and loading roles. A pit slave armed with a claw may pick up and hurl his opponent if he wins a round of combat, in addition to hitting him. A hurled opponent is thrown D6&quot; in a direction chosen by the player. The hurled model suffers a hit at a Strength equal to half the distance thrown (round up). If it strikes a wall or other obstruction it will stop there. If it hits another model both models take a hit with a Strength equal to half the distance rolled. If the model is pitched off a building use the Falling rules to work out damage.</description>
+            </rule>
+          </rules>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs/>
+        </selectionEntry>
+        <selectionEntry id="5dce-00d1-dc6d-c15e" name="Shears" hidden="false" collective="false" type="upgrade">
+          <profiles>
+            <profile id="f40b-a035-bbb7-bd59" name="Shears" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <characteristics>
+                <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="4"/>
+                <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="1"/>
+                <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-1"/>
+                <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e"/>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules>
+            <rule id="cb94-2376-ecd9-60af" name="Shears" hidden="false">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <description>Huge shears are fitted to pit slaves for harvesting fungus groves and scrap sheet metal. The sharp blades of the shears are quite capable of snipping bits off a human as well. If the pit slave hits an opponent in hand-to-hand combat, re-roll any dice which roll 6 to wound. If the second roll is also a 6 the victim&apos;s head is snipped clean off unless it can make its armour Saving throw (or dodge).
+
+Any models that suffer this fate are automatically dead and don’t roll on the Serious Injury Table. Note that the model can’t be revived with medic skills, medi-packs, etc.</description>
+            </rule>
+          </rules>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs/>
+        </selectionEntry>
+        <selectionEntry id="762f-593b-1780-f81d" name="Buzz Saw" hidden="false" collective="false" type="upgrade">
+          <profiles>
+            <profile id="cd68-b0bb-b1ef-4329" name="Buzz Saw" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <characteristics>
+                <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="5"/>
+                <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="1"/>
+                <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-2"/>
+                <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" value="None"/>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs/>
+        </selectionEntry>
+        <selectionEntry id="53f4-3e7f-369d-7db0" name="Chainsaw" hidden="false" collective="false" type="upgrade">
+          <profiles>
+            <profile id="68c8-c693-497b-af5f" name="Chainsaw" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <characteristics>
+                <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="4"/>
+                <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="1"/>
+                <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-1"/>
+                <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e" value="Parry"/>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules/>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs/>
+        </selectionEntry>
+        <selectionEntry id="863f-d9d3-0b3a-8e62" name="Hammer" hidden="false" collective="false" type="upgrade">
+          <profiles>
+            <profile id="25ed-47d9-723c-917c" name="Hammer" hidden="false" profileTypeId="9db87680-6ee5-b46c-48ca-dcd1c5de1bad" profileTypeName="HtH Weapon">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <characteristics>
+                <characteristic name="Str" characteristicTypeId="f10cfcb7-b71e-4c27-9836-75d341e28f68" value="4"/>
+                <characteristic name="Dam" characteristicTypeId="f9f9c14f-bdb3-e7b8-fb28-674f944d410e" value="1"/>
+                <characteristic name="Save" characteristicTypeId="dd733306-ecdc-02c5-7107-15ee6e980021" value="-1"/>
+                <characteristic name="Special" characteristicTypeId="80dd3fd5-3811-af0b-e182-2ecbc7ad5d8e"/>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules>
+            <rule id="e1cf-7d50-47b0-bfbe" name="Hammer" hidden="false">
+              <profiles/>
+              <rules/>
+              <infoLinks/>
+              <modifiers/>
+              <description>Giant hammers are fitted to mining and foundry slaves. The pile driver force of a pneumatically-driven hammer is so great that opponents in hand-to-hand combat may be knocked senseless and beated to their knees before they have a chance to fight back.
+
+Any opponent in hand-to-hand combat with a hammer-armed pit slave has its Weapon Skill halved (rounding fractions down) unless it can roll under its Initiative on a D6.</description>
+            </rule>
+          </rules>
+          <infoLinks/>
+          <modifiers/>
+          <constraints/>
+          <selectionEntries/>
+          <selectionEntryGroups/>
+          <entryLinks/>
+          <costs/>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups/>
+      <entryLinks/>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <sharedRules>
